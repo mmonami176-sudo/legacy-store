@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacy Store Morocco | مجوهرات فاخرة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dark:#0a0804;
+  --dark2:#120f08;
+  --dark3:#1c1710;
+  --gold:#c9960c;
+  --gold2:#e8b84b;
+  --gold3:#f5d78e;
+  --cream:#f5f0e8;
+  --text:#f0ead8;
+  --muted:#9e9070;
+  --teal:#1a6b6b;
+  --green:#25D366;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+
+/* ── ARABESQUE PATTERN ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9960c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:14px 5%;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,8,4,0.95);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(201,150,12,0.2);
+}
+.nav-logo{display:flex;flex-direction:column;line-height:1}
+.nav-logo .logo-main{
+  font-size:1.4rem;font-weight:900;letter-spacing:3px;
+  background:linear-gradient(135deg,var(--gold),var(--gold3),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.nav-logo .logo-sub{font-size:0.6rem;letter-spacing:5px;color:var(--muted);text-transform:uppercase}
+.nav-cta{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0a0804;padding:10px 22px;border-radius:50px;
+  font-weight:800;font-size:0.85rem;text-decoration:none;transition:all 0.3s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,150,12,0.4)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;align-items:center;padding:120px 5% 80px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('assets/hero.jpg') center/cover no-repeat;
+  filter:brightness(0.25) saturate(0.8);
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(10,8,4,0.7) 0%,rgba(10,8,4,0.3) 50%,rgba(10,8,4,0.8) 100%);
+}
+.hero-content{position:relative;z-index:2;max-width:620px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(201,150,12,0.12);border:1px solid rgba(201,150,12,0.3);
+  padding:7px 16px;border-radius:50px;font-size:0.8rem;color:var(--gold2);
+  margin-bottom:28px;font-weight:600;letter-spacing:1px;
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.25;margin-bottom:20px;
+}
+.hero h1 .hl{
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:36px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0a0804;padding:15px 32px;border-radius:50px;
+  font-weight:800;font-size:0.95rem;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:all 0.3s;
+  box-shadow:0 8px 30px rgba(201,150,12,0.3);
+}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(201,150,12,0.5)}
+.btn-outline-gold{
+  border:1.5px solid rgba(201,150,12,0.4);color:var(--gold2);
+  padding:15px 32px;border-radius:50px;font-weight:700;font-size:0.95rem;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s;
+}
+.btn-outline-gold:hover{border-color:var(--gold2);background:rgba(201,150,12,0.06)}
+
+/* ── DIVIDER ── */
+.divider{
+  height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0;opacity:0.3;
+}
+
+/* ── FEATURES BAR ── */
+.features-bar{
+  padding:30px 5%;background:var(--dark2);
+  border-bottom:1px solid rgba(201,150,12,0.1);
+}
+.features-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;max-width:900px;margin:0 auto;text-align:center;
+}
+.feat-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+.feat-icon{font-size:1.4rem}
+.feat-text{font-size:0.78rem;color:var(--muted);font-weight:600}
+
+/* ── SECTION ── */
+section{padding:90px 5%;position:relative;z-index:1}
+.sec-label{
+  font-size:0.7rem;letter-spacing:5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;font-weight:700;
+}
+.sec-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:12px}
+.sec-desc{font-size:0.9rem;color:var(--muted);line-height:1.8;max-width:560px}
+.sec-head{margin-bottom:60px}
+
+/* ── PRODUCTS ── */
+#products{background:var(--dark2)}
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;max-width:1100px;margin:0 auto;
+}
+.product-card{
+  background:var(--dark3);border:1px solid rgba(201,150,12,0.12);
+  border-radius:20px;overflow:hidden;transition:all 0.4s;position:relative;
+}
+.product-card:hover{
+  transform:translateY(-6px);border-color:rgba(201,150,12,0.35);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 30px rgba(201,150,12,0.08);
+}
+.product-imgs{position:relative;aspect-ratio:1;overflow:hidden}
+.product-imgs img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.6s ease;
+}
+.product-card:hover .product-imgs img.main{transform:scale(1.05)}
+.product-imgs img.hover{
+  position:absolute;inset:0;opacity:0;transition:opacity 0.4s;
+}
+.product-card:hover .product-imgs img.hover{opacity:1}
+.product-card:hover .product-imgs img.main{opacity:0}
+.prod-badge{
+  position:absolute;top:14px;right:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0a0804;padding:5px 12px;border-radius:50px;
+  font-size:0.72rem;font-weight:800;
+}
+.product-info{padding:22px}
+.product-name{font-size:1rem;font-weight:800;margin-bottom:6px}
+.product-desc{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.product-footer{display:flex;align-items:center;justify-content:space-between}
+.product-price{
+  font-size:1.3rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.product-price small{font-size:0.7rem;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+.order-btn{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0a0804;border:none;padding:10px 20px;border-radius:50px;
+  font-family:'Cairo',sans-serif;font-weight:800;font-size:0.85rem;
+  cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;
+}
+.order-btn:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(201,150,12,0.4)}
+
+/* ── ORDER FORM ── */
+#order{background:var(--dark)}
+.form-wrap{
+  max-width:680px;margin:0 auto;
+  background:var(--dark2);border:1px solid rgba(201,150,12,0.15);
+  border-radius:24px;padding:44px;
+}
+.form-title{font-size:1.3rem;font-weight:900;margin-bottom:6px}
+.form-sub{font-size:0.85rem;color:var(--muted);margin-bottom:32px;line-height:1.6}
+.field-group{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:0.8rem;color:var(--muted);margin-bottom:7px;font-weight:600}
+.field input,
+.field select,
+.field textarea{
+  width:100%;padding:13px 16px;
+  background:var(--dark3);border:1px solid rgba(201,150,12,0.15);
+  border-radius:12px;color:var(--text);
+  font-family:'Cairo',sans-serif;font-size:0.9rem;
+  outline:none;transition:border-color 0.3s;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{border-color:var(--gold)}
+.field select option{background:var(--dark3)}
+.field textarea{resize:none;height:80px}
+.submit-btn{
+  width:100%;padding:16px;margin-top:8px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0a0804;border:none;border-radius:14px;
+  font-family:'Cairo',sans-serif;font-size:1rem;font-weight:800;
+  cursor:pointer;transition:all 0.3s;
+  box-shadow:0 8px 30px rgba(201,150,12,0.25);
+}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(201,150,12,0.4)}
+
+/* ── WHY ── */
+#why{background:var(--dark2)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.why-card{
+  background:var(--dark3);border:1px solid rgba(201,150,12,0.1);
+  border-radius:18px;padding:30px;text-align:center;transition:all 0.4s;
+}
+.why-card:hover{border-color:rgba(201,150,12,0.3);transform:translateY(-4px)}
+.why-icon{font-size:2rem;margin-bottom:14px}
+.why-card h3{font-size:0.97rem;font-weight:800;margin-bottom:8px}
+.why-card p{font-size:0.83rem;color:var(--muted);line-height:1.7}
+
+/* ── CTA ── */
+.cta-section{
+  padding:70px 5%;text-align:center;
+  background:linear-gradient(135deg,rgba(201,150,12,0.08),rgba(201,150,12,0.02));
+  border-top:1px solid rgba(201,150,12,0.12);
+  border-bottom:1px solid rgba(201,150,12,0.12);
+  position:relative;z-index:1;
+}
+.cta-section h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;margin-bottom:12px}
+.cta-section p{color:var(--muted);max-width:480px;margin:0 auto 32px;line-height:1.8}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--green),#128C7E);
+  color:#fff;padding:17px 38px;border-radius:50px;
+  font-weight:800;font-size:1rem;text-decoration:none;transition:all 0.3s;
+  box-shadow:0 8px 30px rgba(37,211,102,0.25);
+}
+.btn-wa:hover{transform:translateY(-3px);box-shadow:0 15px 45px rgba(37,211,102,0.4)}
+
+/* ── FOOTER ── */
+footer{
+  padding:36px 5%;text-align:center;background:var(--dark);
+  border-top:1px solid rgba(201,150,12,0.08);position:relative;z-index:1;
+}
+footer .footer-logo{
+  font-size:1.1rem;font-weight:900;letter-spacing:3px;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:8px;
+}
+footer p{color:var(--muted);font-size:0.82rem}
+
+/* ── WA FLOAT ── */
+.wa-float{
+  position:fixed;bottom:28px;left:28px;width:56px;height:56px;
+  background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,0.4);
+  z-index:99;transition:all 0.3s;color:#fff;
+}
+.wa-float:hover{transform:scale(1.1)}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:all 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .products-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .field-group{grid-template-columns:1fr}
+  .form-wrap{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="logo-main">⌐LEGACY¬</span>
+    <span class="logo-sub">STORE · MOROCCO</span>
+  </div>
+  <a href="#order" class="nav-cta">🛍️ اطلب الآن</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✨ مجوهرات فاخرة — توصيل في جميع أرجاء المغرب</div>
+    <h1>أناقة <span class="hl">لا تُنسى</span><br>من <span class="hl">Legacy Store</span></h1>
+    <p>مجموعة مختارة من أجمل الإكسسوارات — مصنوعة لتدوم وتُبهر. اطلبي الآن مع توصيل سريع لبابك.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-gold">💎 شوفي المنتجات</a>
+      <a href="#order" class="btn-outline-gold">📦 اطلبي الآن</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features-bar">
+  <div class="features-grid">
+    <div class="feat-item reveal"><div class="feat-icon">🚚</div><div class="feat-text">توصيل لجميع المدن</div></div>
+    <div class="feat-item reveal"><div class="feat-icon">💳</div><div class="feat-text">الدفع عند الاستلام</div></div>
+    <div class="feat-item reveal"><div class="feat-icon">🏅</div><div class="feat-text">جودة مضمونة</div></div>
+    <div class="feat-item reveal"><div class="feat-icon">🎁</div><div class="feat-text">تغليف هدايا فاخر</div></div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="sec-head reveal" style="text-align:center">
+    <div class="sec-label">مجموعتنا</div>
+    <h2 class="sec-title" style="background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">منتجاتنا المميزة</h2>
+    <p class="sec-desc" style="margin:0 auto">كل قطعة تُصنع لتعكس شخصيتك وتضيف لمسة من الفخامة ليومك</p>
+  </div>
+  <div class="products-grid">
+
+    <!-- PRODUCT 1: Necklace -->
+    <div class="product-card reveal">
+      <div class="product-imgs">
+        <img class="main" src="assets/necklace1.jpg" alt="قلادة العقيق الأسود"/>
+        <img class="hover" src="assets/necklace2.jpg" alt="قلادة العقيق الأسود"/>
+        <div class="prod-badge">🔥 الأكثر مبيعاً</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">قلادة العقيق الأسود الذهبية</div>
+        <div class="product-desc">قلادة أنيقة بحجر عقيق أسود مع سلسلة ذهبية اللون — تناسب كل الإطلالات</div>
+        <div class="product-footer">
+          <div class="product-price">89 درهم <small>/ القطعة</small></div>
+          <a href="#order" class="order-btn" onclick="selectProduct('قلادة العقيق الأسود الذهبية')">اطلبيها ←</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2: Bracelet -->
+    <div class="product-card reveal">
+      <div class="product-imgs">
+        <img class="main" src="assets/bracelet1.jpg" alt="إسورة الحظ الحمراء"/>
+        <img class="hover" src="assets/bracelet2.jpg" alt="إسورة الحظ الحمراء"/>
+        <div class="prod-badge">❤️ هدية مثالية</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">إسورة الحظ الحمراء "Good Luck"</div>
+        <div class="product-desc">إسورة خيط أحمر ملفوف بحبيبات ذهبية مع ميدالية Good Luck — هدية جميلة لأحبائك</div>
+        <div class="product-footer">
+          <div class="product-price">59 درهم <small>/ القطعة</small></div>
+          <a href="#order" class="order-btn" onclick="selectProduct('إسورة الحظ الحمراء Good Luck')">اطلبيها ←</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3: Bangle -->
+    <div class="product-card reveal">
+      <div class="product-imgs">
+        <img class="main" src="assets/bangle1.jpg" alt="إسورة الآيات الكريمة"/>
+        <img class="hover" src="assets/bangle2.jpg" alt="إسورة الآيات الكريمة"/>
+        <div class="prod-badge">✨ جديد</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">إسورة الآيات الكريمة المنقوشة</div>
+        <div class="product-desc">إسورة بنقوش قرآنية فاخرة — متوفرة بـ 4 ألوان: ذهبي، فضي، أسود، وروز غولد</div>
+        <div class="product-footer">
+          <div class="product-price">79 درهم <small>/ القطعة</small></div>
+          <a href="#order" class="order-btn" onclick="selectProduct('إسورة الآيات الكريمة المنقوشة')">اطلبيها ←</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="sec-head reveal" style="text-align:center">
+    <div class="sec-label">لماذا Legacy Store</div>
+    <h2 class="sec-title">نحن نختلف <span style="background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">لأننا نهتم</span></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">💎</div>
+      <h3>جودة فاخرة بسعر عادل</h3>
+      <p>نختار كل قطعة بعناية لتدوم وتبهر — لا تسوية على الجودة أبداً</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">📦</div>
+      <h3>توصيل سريع لبابك</h3>
+      <p>نوصل لجميع مدن المغرب خلال 2 إلى 4 أيام — مع تغليف أنيق يليق بالهدايا</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🤝</div>
+      <h3>الدفع عند الاستلام</h3>
+      <p>تدفعين فقط عند وصول طلبك — لا مخاطرة ولا قلق على أموالك</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2 class="reveal">لديك <span style="background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">سؤال؟</span></h2>
+  <p class="reveal">تواصلي معنا مباشرة على واتساب وسنجيبك خلال دقائق</p>
+  <a href="https://wa.me/212649478388?text=السلام عليكم، أريد الاستفسار عن منتجات Legacy Store Morocco" class="btn-wa reveal" target="_blank">
+    💬 تحدثي معنا على واتساب
+  </a>
+</div>
+
+<!-- ORDER FORM -->
+<section id="order">
+  <div class="sec-head reveal" style="text-align:center">
+    <div class="sec-label">الطلب</div>
+    <h2 class="sec-title">اطلبي <span style="background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">الآن</span></h2>
+    <p class="sec-desc" style="margin:0 auto">املئي النموذج وسنتواصل معك لتأكيد الطلب خلال دقائق</p>
+  </div>
+  <div class="form-wrap reveal">
+    <div class="form-title">📋 نموذج الطلب</div>
+    <div class="form-sub">الدفع عند الاستلام — توصيل لجميع مدن المغرب 🇲🇦</div>
+    <div class="field-group">
+      <div class="field">
+        <label>الاسم الكامل *</label>
+        <input id="f-name" type="text" placeholder="مثال: فاطمة العلوي"/>
+      </div>
+      <div class="field">
+        <label>رقم الهاتف *</label>
+        <input id="f-phone" type="tel" placeholder="06XXXXXXXX"/>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field">
+        <label>المدينة *</label>
+        <input id="f-city" type="text" placeholder="مثال: الدار البيضاء"/>
+      </div>
+      <div class="field">
+        <label>المنتج المطلوب *</label>
+        <select id="f-product">
+          <option value="">— اختاري المنتج —</option>
+          <option value="قلادة العقيق الأسود الذهبية — 89 درهم">💎 قلادة العقيق الأسود — 89 درهم</option>
+          <option value="إسورة الحظ الحمراء Good Luck — 59 درهم">❤️ إسورة الحظ الحمراء — 59 درهم</option>
+          <option value="إسورة الآيات الكريمة — ذهبي — 79 درهم">✨ إسورة الآيات — ذهبي — 79 درهم</option>
+          <option value="إسورة الآيات الكريمة — فضي — 79 درهم">✨ إسورة الآيات — فضي — 79 درهم</option>
+          <option value="إسورة الآيات الكريمة — أسود — 79 درهم">✨ إسورة الآيات — أسود — 79 درهم</option>
+          <option value="إسورة الآيات الكريمة — روز غولد — 79 درهم">✨ إسورة الآيات — روز غولد — 79 درهم</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>العنوان بالتفصيل *</label>
+      <input id="f-address" type="text" placeholder="الحي، الشارع، رقم البناية..."/>
+    </div>
+    <div class="field">
+      <label>الكمية والملاحظات</label>
+      <textarea id="f-notes" placeholder="مثال: قطعتان، الكمية 2، أو أي ملاحظة..."></textarea>
+    </div>
+    <button class="submit-btn" onclick="sendOrder()">📦 إرسال الطلب على واتساب ←</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">⌐LEGACY¬ STORE</div>
+  <p>© 2025 Legacy Store Morocco — جميع الحقوق محفوظة</p>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/212649478388" class="wa-float" target="_blank">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.136 1.535 5.876L0 24l6.292-1.517C8.002 23.447 9.96 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.7-.512-5.268-1.41l-.376-.223-3.896.94.988-3.797-.247-.39C2.512 15.7 2 13.897 2 12 2 6.478 6.478 2 12 2s10 4.478 10 10-4.478 10-10 10z"/></svg>
+</a>
+
+<script>
+/* ── SELECT PRODUCT FROM CARD ── */
+function selectProduct(name) {
+  const sel = document.getElementById('f-product');
+  for(let i=0;i<sel.options.length;i++){
+    if(sel.options[i].value.includes(name.split(' ')[0])){
+      sel.selectedIndex = i; break;
+    }
+  }
+}
+
+/* ── SEND ORDER ── */
+function sendOrder(){
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const city    = document.getElementById('f-city').value.trim();
+  const product = document.getElementById('f-product').value;
+  const address = document.getElementById('f-address').value.trim();
+  const notes   = document.getElementById('f-notes').value.trim();
+
+  if(!name||!phone||!city||!product||!address){
+    alert('⚠️ من فضلك املئي جميع الحقول المطلوبة *');
+    return;
+  }
+
+  const msg = `🛍️ طلب جديد — Legacy Store Morocco
+━━━━━━━━━━━━━━━━━━━━
+👤 الاسم: ${name}
+📱 الهاتف: ${phone}
+🏙️ المدينة: ${city}
+📍 العنوان: ${address}
+💎 المنتج: ${product}
+${notes ? '📝 ملاحظات: '+notes : ''}
+━━━━━━━━━━━━━━━━━━━━
+💳 الدفع عند الاستلام`;
+
+  window.open('https://wa.me/212649478388?text='+encodeURIComponent(msg), '_blank');
+}
+
+/* ── REVEAL ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
